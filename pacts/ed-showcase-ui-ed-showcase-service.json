@@ -1,0 +1,79 @@
+{
+  "consumer": {
+    "name": "ED-SHOWCASE-UI"
+  },
+  "provider": {
+    "name": "ED-SHOWCASE-SERVICE"
+  },
+  "interactions": [
+    {
+      "description": "a request for a school",
+      "providerState": "i have a school",
+      "request": {
+        "method": "GET",
+        "path": "/ids/v1/schools/0d2bf746-ae98-4bb4-a807-8c2db6d2852d",
+        "headers": {
+          "Accept": "*/*"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "InteractEd Test Eval School 1-91002661",
+          "type": "SCHOOL",
+          "sifRefId": "54d2a3eb-0010-4988-9d41-ec68ea869399",
+          "pid": "91002661",
+          "schoolId": "54d2a3eb-0010-4988-9d41-ec68ea869399",
+          "parentOrg": {
+            "orgId": "fabe7fcc-6c79-4540-94ee-3f22072ddb7a",
+            "name": "InteractEd Test Eval District 1-91002660",
+            "type": "DISTRICT",
+            "sifRefId": "fabe7fcc-6c79-4540-94ee-3f22072ddb7a",
+            "pid": "91002660"
+          }
+        },
+        "matchingRules": {
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.sifRefId": {
+            "match": "regex",
+            "regex": "^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$"
+          },
+          "$.body.pid": {
+            "match": "type"
+          },
+          "$.body.schoolId": {
+            "match": "regex",
+            "regex": "^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$"
+          },
+          "$.body.parentOrg.orgId": {
+            "match": "regex",
+            "regex": "^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$"
+          },
+          "$.body.parentOrg.name": {
+            "match": "type"
+          },
+          "$.body.parentOrg.type": {
+            "match": "type"
+          },
+          "$.body.parentOrg.sifRefId": {
+            "match": "regex",
+            "regex": "^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$"
+          },
+          "$.body.parentOrg.pid": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
